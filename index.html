@@ -206,7 +206,7 @@
         }
 
         .roadmap-timeline {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             position: relative;
         }
@@ -240,6 +240,12 @@
             margin: 0 2rem;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .roadmap-content:hover {
+            background: rgba(255,255,255,0.15);
+            transform: scale(1.02);
         }
 
         .roadmap-dot {
@@ -253,18 +259,60 @@
             transform: translateX(-50%);
             border: 4px solid white;
             z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .roadmap-item.completed .roadmap-dot {
+            background: #4CAF50;
+            box-shadow: 0 0 20px rgba(76, 175, 80, 0.6);
+        }
+
+        .roadmap-item.current .roadmap-dot {
+            background: #FF9800;
+            box-shadow: 0 0 20px rgba(255, 152, 0, 0.6);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: translateX(-50%) scale(1);
+            }
+            50% {
+                transform: translateX(-50%) scale(1.2);
+            }
         }
 
         .roadmap-quarter {
             font-size: 0.9rem;
-            opacity: 0.8;
+            opacity: 0.9;
             margin-bottom: 0.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .roadmap-item.completed .roadmap-quarter::after {
+            content: ' ✓';
+            color: #4CAF50;
+            font-weight: 800;
+        }
+
+        .roadmap-item.current .roadmap-quarter::after {
+            content: ' ◉';
+            color: #FF9800;
+            font-weight: 800;
         }
 
         .roadmap-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: #FFC107;
+        }
+
+        .roadmap-content p {
+            line-height: 1.7;
+            opacity: 0.95;
         }
 
        /* HOW IT WORKS SECTION */
@@ -592,38 +640,38 @@
         <div class="container">
             <h2 class="section-title">Development Roadmap</h2>
             <div class="roadmap-timeline">
-                <div class="roadmap-item fade-in">
+                <div class="roadmap-item completed fade-in">
                     <div class="roadmap-content">
-                        <div class="roadmap-quarter">Q1 2025 - COMPLETED</div>
-                        <div class="roadmap-title">🎮 Core Game</div>
-                        <p>Bird breeding, feeding, seed collection, expeditions, first TON rewards</p>
+                        <div class="roadmap-quarter">Q4 2025 - COMPLETED</div>
+                        <div class="roadmap-title">🎮 Core Game Launch</div>
+                        <p>Bird breeding, wild bird feeding mechanics, seed collection and auto-collection, expedition system</p>
+                    </div>
+                    <div class="roadmap-dot"></div>
+                </div>
+                
+                <div class="roadmap-item current fade-in">
+                    <div class="roadmap-content">
+                        <div class="roadmap-quarter">Q1 2026 - IN PROGRESS</div>
+                        <div class="roadmap-title">💎 TON Wallet Integration</div>
+                        <p>Seamless in-game TON wallet, TON reward withdrawal, secure transactions</p>
                     </div>
                     <div class="roadmap-dot"></div>
                 </div>
                 
                 <div class="roadmap-item fade-in">
                     <div class="roadmap-content">
-                        <div class="roadmap-quarter">Q2 2025</div>
-                        <div class="roadmap-title">💰 Payout System</div>
-                        <p>Automatic TON payouts, in-game wallet</p>
+                        <div class="roadmap-quarter">Q2 2026</div>
+                        <div class="roadmap-title">📢 Marketing Campaign</div>
+                        <p>Social media campaigns, partnerships, referral program</p>
                     </div>
                     <div class="roadmap-dot"></div>
                 </div>
                 
                 <div class="roadmap-item fade-in">
                     <div class="roadmap-content">
-                        <div class="roadmap-quarter">Q3 2025</div>
-                        <div class="roadmap-title">🏆 Tournaments</div>
-                        <p>Weekly tournaments, leaderboards, rewards for top players</p>
-                    </div>
-                    <div class="roadmap-dot"></div>
-                </div>
-                
-                <div class="roadmap-item fade-in">
-                    <div class="roadmap-content">
-                        <div class="roadmap-quarter">Q4 2025</div>
-                        <div class="roadmap-title">🏰 Guilds & New Locations</div>
-                        <p>Guild system, cooperation, new locations with unique birds</p>
+                        <div class="roadmap-quarter">Q3 2026</div>
+                        <div class="roadmap-title">🌍 Expansion & Events</div>
+                        <p>New exotic locations, unique region-specific birds, weekly and monthly competitive events with TON prizes</p>
                     </div>
                     <div class="roadmap-dot"></div>
                 </div>
@@ -677,17 +725,14 @@
         </svg>
     </a>
 
+   <a href="https://www.instagram.com/feed.and.flap/" class="social-link" title="Instagram">
+       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+           <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-.75a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z"/>
+       </svg>
+   </a>
 
 
-
-
-    <!-- NEW INSTAGRAM ICON -->
-                <a href="https://www.instagram.com/feed.and.flap/" class="social-link" title="Instagram">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-.75a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z"/>
-                    </svg>
-                </a>
-            </div>
+</div>
             
             <div>
                 <p>Have questions? Contact us:</p>
@@ -700,7 +745,6 @@
             </div>
         </div>
     </footer>
-
 
     <script>
         // LOADING SCREEN
